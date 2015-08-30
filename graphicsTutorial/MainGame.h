@@ -30,14 +30,14 @@ private:
 	void drawGame();
 	void calculateFPS();
 
-	Window _window;
+	HackEngine::Window _window;
 	int _screenWidth;
 	int _screenHeight;
 	GameState _gameState;
 
-	std::vector<Sprite*> _sprites;
+	std::vector<HackEngine::Sprite*> _sprites;
 
-	GLSLProgram _colorProgram;
+	HackEngine::GLSLProgram _colorProgram;
 
 	float _fps;
 	float _maxFps;

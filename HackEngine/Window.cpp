@@ -2,14 +2,14 @@
 #include "Errors.h"
 
 
-Window::Window() {
+HackEngine::Window::Window() {
 }
 
 
-Window::~Window() {
+HackEngine::Window::~Window() {
 }
 
-int Window::create(std::string windowName, int screenWidth, int sreenHeigth, unsigned currentFlags) {
+int HackEngine::Window::create(std::string windowName, int screenWidth, int sreenHeigth, unsigned currentFlags) {
 	Uint32 flags = SDL_WINDOW_OPENGL;
 
 	if (currentFlags & INVISIBLE) {
@@ -51,6 +51,6 @@ int Window::create(std::string windowName, int screenWidth, int sreenHeigth, uns
 	return 0;
 }
 
-void Window::swapBuffer() {
+void HackEngine::Window::swapBuffer() {
 	SDL_GL_SwapWindow(_window);
 }

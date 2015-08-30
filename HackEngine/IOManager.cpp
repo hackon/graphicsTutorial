@@ -1,7 +1,7 @@
 #include "IOManager.h"
 #include <fstream>
 
-bool IOManager::readFileToBuffer(std::vector<unsigned char>& buffer, std::string filePath)
+bool HackEngine::IOManager::readFileToBuffer(std::vector<unsigned char>& buffer, std::string filePath)
 {
 	std::ifstream file(filePath, std::ios::binary);
 	if (file.fail())

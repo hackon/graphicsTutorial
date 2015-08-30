@@ -6,18 +6,18 @@
 #include <fstream>
 
 //The : _numAttributes(0) ect. is an initialization list. It is a better way to initialize variables, since it avoids an extra copy. 
-GLSLProgram::GLSLProgram() : _numAttributes(0), _programID(0), _vertexShaderID(0), _fragmentShaderID(0)
+HackEngine::GLSLProgram::GLSLProgram() : _numAttributes(0), _programID(0), _vertexShaderID(0), _fragmentShaderID(0)
 {
 
 }
 
 
-GLSLProgram::~GLSLProgram()
+HackEngine::GLSLProgram::~GLSLProgram()
 {
 }
 
 //Compiles the shaders into a form that your GPU can understand
-void GLSLProgram::compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilepath) {
+void HackEngine::GLSLProgram::compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilepath) {
     //Vertex and fragment shaders are successfully compiled.
     //Now time to link them together into a program.
     //Get a program object.
@@ -40,7 +40,7 @@ void GLSLProgram::compileShaders(const std::string& vertexShaderFilePath, const 
     compileShader(fragmentShaderFilepath, _fragmentShaderID);
 }
 
-void GLSLProgram::linkShaders() {
+void HackEngine::GLSLProgram::linkShaders() {
 
     //Attach our shaders to our program
     glAttachShader(_programID, _vertexShaderID);
@@ -82,11 +82,11 @@ void GLSLProgram::linkShaders() {
 }
 
 //Adds an attribute to our shader. SHould be called between compiling and linking.
-void GLSLProgram::addAttribute(const std::string& attributeName) {
+void HackEngine::GLSLProgram::addAttribute(const std::string& attributeName) {
     glBindAttribLocation(_programID, _numAttributes++, attributeName.c_str());
 }
 
-GLint GLSLProgram::getUniformLocationLuint(const std::string uniformName)
+GLint HackEngine::GLSLProgram::getUniformLocationLuint(const std::string uniformName)
 {
 	GLint location = glGetUniformLocation(_programID, uniformName.c_str());
 	if (location == GL_INVALID_INDEX)
@@ -97,7 +97,7 @@ GLint GLSLProgram::getUniformLocationLuint(const std::string uniformName)
 }
 
 //enable the shader, and all its attributes
-void GLSLProgram::use() {
+void HackEngine::GLSLProgram::use() {
     glUseProgram(_programID);
     //enable all the attributes we added with addAttribute
     for (int i = 0; i < _numAttributes; i++) {
@@ -106,7 +106,7 @@ void GLSLProgram::use() {
 }
 
 //disable the shader
-void GLSLProgram::unuse() {
+void HackEngine::GLSLProgram::unuse() {
     glUseProgram(0);
     for (int i = 0; i < _numAttributes; i++) {
         glDisableVertexAttribArray(i);
@@ -114,7 +114,7 @@ void GLSLProgram::unuse() {
 }
 
 //Compiles a single shader file
-void GLSLProgram::compileShader(const std::string& filePath, GLuint id) {
+void HackEngine::GLSLProgram::compileShader(const std::string& filePath, GLuint id) {
 
     //Open the file
     std::ifstream shaderFile(filePath);

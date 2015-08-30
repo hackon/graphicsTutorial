@@ -3,7 +3,7 @@
 #include "IOManager.h"
 #include "Errors.h"
 
-GLTexture ImageLoader::loadPng(std::string filePath)
+HackEngine::GLTexture HackEngine::ImageLoader::loadPng(std::string filePath)
 {
 	GLTexture texture = {};
 

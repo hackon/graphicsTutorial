@@ -3,16 +3,16 @@
 #include <iostream>
 
 
-TextureCache::TextureCache()
+HackEngine::TextureCache::TextureCache()
 {
 }
 
 
-TextureCache::~TextureCache()
+HackEngine::TextureCache::~TextureCache()
 {
 }
 
-GLTexture TextureCache::getTexture(std::string texturePath)
+HackEngine::GLTexture HackEngine::TextureCache::getTexture(std::string texturePath)
 {
 	std::map<std::string, GLTexture>::iterator mit = _textureMap.find(texturePath);
 	//auto mit = _textureMap.find(key);

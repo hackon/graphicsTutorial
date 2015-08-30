@@ -4,14 +4,14 @@
 #include <cstddef>
 #include "ResourceManager.h"
 
-Sprite::Sprite()
+HackEngine::Sprite::Sprite()
 {
     //Always initialize your buffer IDs to 0
     _vboID = 0;
 }
 
 
-Sprite::~Sprite()
+HackEngine::Sprite::~Sprite()
 {
     //Always remember to delete your buffers when
     //you are done!
@@ -22,7 +22,7 @@ Sprite::~Sprite()
 
 //Initializes the sprite VBO. x, y, width, and height are
 //in the normalized device coordinate space. so, [-1, 1]
-void Sprite::init(float x, float y, float width, float height, std::string texturePath) {
+void HackEngine::Sprite::init(float x, float y, float width, float height, std::string texturePath) {
     //Set up our private vars
     _x = x;
     _y = y;
@@ -74,7 +74,7 @@ void Sprite::init(float x, float y, float width, float height, std::string textu
 }
 
 //Draws the sprite to the screen
-void Sprite::draw() {
+void HackEngine::Sprite::draw() {
 
 	glBindTexture(GL_TEXTURE_2D, _texture.id);
 

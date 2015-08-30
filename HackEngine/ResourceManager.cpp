@@ -1,8 +1,8 @@
 #include "ResourceManager.h"
 
-TextureCache ResourceManager::_textureCache;
+HackEngine::TextureCache HackEngine::ResourceManager::_textureCache;
 
-GLTexture ResourceManager::getTexture(std::string texturePath)
+HackEngine::GLTexture HackEngine::ResourceManager::getTexture(std::string texturePath)
 {
 	return _textureCache.getTexture(texturePath);
 }
