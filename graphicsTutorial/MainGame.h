@@ -7,6 +7,7 @@
 #include <HackEngine/Sprite.h>
 #include <vector>
 #include <HackEngine/Window.h>
+#include <HackEngine/Camera2D.h>
 
 enum class GameState
 {
@@ -38,7 +39,7 @@ private:
 	std::vector<HackEngine::Sprite*> _sprites;
 
 	HackEngine::GLSLProgram _colorProgram;
-
+	HackEngine::Camera2D _camera;
 	float _fps;
 	float _maxFps;
 	float _frameTime;
