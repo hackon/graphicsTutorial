@@ -18,7 +18,7 @@ namespace HackEngine {
 
 		int create(std::string windowName, int screenWidth, int sreenHeigth, unsigned int currentFlags);
 
-		void swapBuffer();
+		void swapBuffer() const;
 
 		int getWidth() { return _width; }
 		int getHeight() { return _height; }

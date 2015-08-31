@@ -20,7 +20,7 @@ namespace HackEngine {
 
 		GLint getUniformLocationLuint(const std::string uniformName);
 
-		void use();
+		void use() const;
 		void unuse();
 	private:
 
