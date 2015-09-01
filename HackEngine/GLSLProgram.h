@@ -18,7 +18,7 @@ namespace HackEngine {
 
 		void addAttribute(const std::string& attributeName);
 
-		GLint getUniformLocationLuint(const std::string uniformName);
+		GLint getUniformLocation(const std::string uniformName);
 
 		void use() const;
 		void unuse();

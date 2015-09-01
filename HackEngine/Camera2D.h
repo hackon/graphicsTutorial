@@ -15,7 +15,7 @@ namespace HackEngine {
 		void setScale(float scale) { _scale = scale; _needsMatrixUpdate = true; }
 
 
-		glm::vec2 getposition() { return _position; }
+		glm::vec2 getPosition() { return _position; }
 		float getScale() { return _scale; }
 		glm::mat4 getCameraMatrix() { return _cameraMatrix; }
 

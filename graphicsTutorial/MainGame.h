@@ -1,20 +1,15 @@
 #pragma once
 
-#include <SDL/SDL.h>
-
 #include <HackEngine/GLSLProgram.h>
-
-#include <HackEngine/Sprite.h>
-#include <vector>
 #include <HackEngine/Window.h>
+
+#include <HackEngine/SpriteBatch.h>
+
 #include <HackEngine/Camera2D.h>
 
-enum class GameState
-{
-	PLAY,
-	EXIT
-};
+enum class GameState { PLAY, EXIT };
 
+//Our example game class, just for testing purposes right now
 class MainGame
 {
 public:
@@ -36,13 +31,15 @@ private:
 	int _screenHeight;
 	GameState _gameState;
 
-	std::vector<HackEngine::Sprite*> _sprites;
-
 	HackEngine::GLSLProgram _colorProgram;
 	HackEngine::Camera2D _camera;
+
+	HackEngine::SpriteBatch _spriteBatch;
+
 	float _fps;
-	float _maxFps;
+	float _maxFPS;
 	float _frameTime;
 
 	float _time;
 };
+
