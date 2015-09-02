@@ -4,8 +4,10 @@
 #include <HackEngine/Window.h>
 
 #include <HackEngine/SpriteBatch.h>
-
+#include <HackEngine/InputManager.h>
 #include <HackEngine/Camera2D.h>
+#include <HackEngine/Timing.h>
+#include "Bullet.h"
 
 enum class GameState { PLAY, EXIT };
 
@@ -24,7 +26,6 @@ private:
 	void gameLoop();
 	void processInput();
 	void drawGame();
-	void calculateFPS();
 
 	HackEngine::Window _window;
 	int _screenWidth;
@@ -36,9 +37,13 @@ private:
 
 	HackEngine::SpriteBatch _spriteBatch;
 
+	HackEngine::InputManager _inputManager;
+	HackEngine::FpsLimiter _fpsLimiter;
+
+	std::vector<Bullet> _bullets;
+
 	float _fps;
 	float _maxFPS;
-	float _frameTime;
 
 	float _time;
 };

@@ -11,6 +11,8 @@ namespace HackEngine {
 
 		void update();
 
+		glm::vec2 convertScreen2World(glm::vec2 screenCoords);
+
 		void setPosition(glm::vec2& position) { _position = position; _needsMatrixUpdate = true; }
 		void setScale(float scale) { _scale = scale; _needsMatrixUpdate = true; }
 
