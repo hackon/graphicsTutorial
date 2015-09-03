@@ -22,11 +22,9 @@ namespace HackEngine {
 			GLTexture newTexture = ImageLoader::loadPng(texturePath);
 			_textureMap.insert(make_pair(texturePath, newTexture));
 
-			std::cout << "Loaded Texture \n";
 			return newTexture;
 		}
 
-		std::cout << "Loaded cached Texture \n";
 		return mit->second;
 	}
 }

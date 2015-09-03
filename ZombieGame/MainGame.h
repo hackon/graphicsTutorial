@@ -4,6 +4,13 @@
 #include <HackEngine/GLSLProgram.h>
 #include <HackEngine/Camera2D.h>
 #include <HackEngine/InputManager.h>
+#include "Level.h"
+#include "Player.h"
+
+enum class GameState {
+	PLAY,
+	EXIT
+};
 
 class MainGame
 {
@@ -18,11 +25,15 @@ private:
     /// Initializes the core systems
     void initSystems();
 
+	void initLevel();
+
     /// Initializes the shaders
     void initShaders();
 
     /// Main game loop for the program
     void gameLoop();
+
+	void updateAgents();
 
     /// Handles input processing
     void processInput();
@@ -38,5 +49,21 @@ private:
 	HackEngine::InputManager _inputManager; ///< Handles input
 
 	HackEngine::Camera2D _camera; ///< Main Camera
+
+	HackEngine::SpriteBatch _agenSpriteBatch; ///< Draws all agents
+
+	std::vector<Level*> _levels;
+
+	int _screenWidth, _screenHeight;
+
+	GameState _gameState;
+
+	int _fps;
+
+	int _currentLevel;
+
+	std::vector<Human*> _humans;
+	std::vector<Zombie*> _zombies;
+	Player* _player;
 };
 
